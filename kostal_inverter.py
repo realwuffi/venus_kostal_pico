@@ -19,7 +19,7 @@ import os
 import sys
 
 # velib path
-sys.path.insert(1, os.path.join(os.path.dirname(__file__), './velib_python'))
+sys.path.insert(1, '/opt/victronenergy/dbus-systemcalc-py/ext/velib_python')
 from vedbus import VeDbusService
 
 class KostalInverter:

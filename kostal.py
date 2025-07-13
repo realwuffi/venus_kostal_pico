@@ -34,7 +34,7 @@ from lxml import html
 import lxml.etree
 import re as regular_expression
 from io import StringIO
-import re 
+import re
 
 class DevState:
 	WaitForDevice = 0
@@ -167,7 +167,8 @@ def kostal_parse_data( data ) :
 		else:
 			statusCode = 10
 		
-		kostal.set('/StatusCode', int(statusCode))		
+		kostal.set('/StatusCode', int(statusCode))
+		kostal.set('/Connected', 1)
 
 		print("++++++++++")
 		print("POWER Phase A: " + str(data['PA']) + "W")
