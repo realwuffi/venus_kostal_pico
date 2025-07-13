@@ -87,38 +87,6 @@ and copy all files
 scp venus_kostal_pico/* root@venusip:/data/venus_kostal_pico/
 ```
 
-## VELib python
-VElib is necessary. Link the whole velib_python directory somewhere from venus into the directory of venus_kostal_pico or clone from https://github.com/victronenergy/velib_python.
-```
-root@venus_pi2:/data/venus_kostal_pico# ln -s /opt/victronenergy/dbus-pump/ext/velib_python ./
-```
-
-The structure of /data/venus_kostal_pico/ should look like this:
-```
-.
-├── kostal.ini
-├── kostal_inverter.py
-├── kostal.py
-├── README.md
-├── start_kostal_pico
-├── velib_python
-│   ├── dbusdummyservice.py
-│   ├── dbusmonitor.py
-│   ├── examples
-│   │   ├── vedbusitem_import_examples.py
-│   │   └── vedbusservice_example.py
-│   ├── LICENSE
-│   ├── logger.py
-│   ├── mosquitto_bridge_registrator.py
-│   ├── __pycache__
-│   │   ├── vedbus.cpython-39.pyc
-│   │   └── ve_utils.cpython-39.pyc
-│   ├── README.md
-│   ├── settingsdevice.py
-│   ├── streamcommand.py
-...
-```
-
 # Test
 You can test you script with /data/rc.local.  You should now see your inverter on venus display. To get same debug output you can start ```kostal.py``` from the console. It should look something like this:
 ```
