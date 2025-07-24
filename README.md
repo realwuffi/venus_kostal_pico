@@ -2,7 +2,7 @@
 The plugin generates a view of the current PV power on Venus. The inverter values are used for the internal consumption calculation on Venus. It is therefore not really necessary for the system to work, but still practical.
 
 # Clone
-git clone https://github.com/schenlap/venus_kostal_pico.git on your local computer (git is not installed on venus)
+git clone https://github.com/realwuffi/venus_kostal_pico.git on your local computer (git is not installed on venus)
 
 # Configure
 
@@ -19,6 +19,9 @@ version = 1
 position = 0
 ```
 ## Kostal version 2 devices
+
+Devices like PIKO MP Plus
+
 Version 2 devices respond on ```http://<IP>/all.xml``` with a xml page like
 ```
 <root>
@@ -57,11 +60,20 @@ Make sure you have the latest firmware update installed (e. g. DC_Current change
 Edit kostal.ini and set version 2.
 ```
 [KOSTAL]
-ip = http://10.0.0.50 # your ip adress
-intervall = 10 # seconds
+# v2 devices run on port 80 (default) so nothing to add
+# other devices may run on e. g. port 7070 (e. g. EVCC)
+ip = http://10.0.0.180
+#username = admin
+#password = topsecret
+intervall = 10
+# 1 for old inverter, 3 for new, 80 get data from evcc (ip for evcc eg: http://10.0.0.10:7070) - do not add username
+# 2 for hybrid inverters like Piko
 version = 2
 # 0 for AC-IN1, 1 for AC-OUT, 2 FOR AC-IN2
 position = 0
+# the name to display in Victron VRM, Venus GUI etc.
+# do not add a '.' or other special characters, I have seen strange behavior
+inverter_name = KostalPiko
 ```
 ## Kostal version 3 devices
 For version 3 devices there are no login credentials necessary, leave them blank. You can test if yoh have a version 3 device if you enter ```http:<IP>/api/dxs.json?dxsEntries=67109120``` in the browser. If you don't get an error you have a version 3 device.
