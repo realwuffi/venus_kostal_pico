@@ -19,28 +19,41 @@ version = 1
 position = 0
 ```
 ## Kostal version 2 devices
-Version 2 devices respond on ```http://<IP>/measurements.xml``` with a xml page like
+Version 2 devices respond on ```http://<IP>/all.xml``` with a xml page like
 ```
 <root>
-<Device Name="PIKO 2.5-1 MP plus" Type="Inverter" Platform="Net16" HmiPlatform="HMI17" NominalPower="2500" UserPowerLimit="nan" CountryPowerLimit="nan" Serial="XXXXXXXXXXXXXXXXXXXX" OEMSerial="YYYYYYYY" BusAddress="1" NetBiosName="INVZZZZZZZZZZZZ" WebPortal="PIKO Solar Portal" ManufacturerURL="kostal-solar-electric.com" IpAddress="192.168.0.1" DateTime="2021-11-06T08:10:32" MilliSeconds="055">
-<Measurements>
-<Measurement Value="229.5" Unit="V" Type="AC_Voltage"/>
-<Measurement Value="6.345" Unit="A" Type="AC_Current"/>
-<Measurement Value="1456.3" Unit="W" Type="AC_Power"/>
-<Measurement Value="0.0" Unit="W" Type="AC_Power_fast"/>
-<Measurement Value="49.982" Unit="Hz" Type="AC_Frequency"/>
-<Measurement Value="78.7" Unit="V" Type="DC_Voltage"/>
-<Measurement Value="0.106" Unit="A" Type="DC_Current"/>
-<Measurement Value="335.0" Unit="V" Type="LINK_Voltage"/>
-<Measurement Unit="W" Type="GridPower"/>
-<Measurement Unit="W" Type="GridConsumedPower"/>
-<Measurement Unit="W" Type="GridInjectedPower"/>
-<Measurement Unit="W" Type="OwnConsumedPower"/>
-<Measurement Value="100.0" Unit="%" Type="Derating"/>
-</Measurements>
-</Device>
+	<Device Name="PIKO 4.6-2 MP plus" Type="Inverter" Platform="Net16" HmiPlatform="HMI17" NominalPower="4600" UserPowerLimit="nan" CountryPowerLimit="nan" Serial="XXXXXXXXXXXXXXXXXXXX" OEMSerial="XXXXXXXX" BusAddress="1" NetBiosName="INV006919400009" WebPortal="PIKO Solar Portal" ManufacturerURL="kostal-solar-electric.com" IpAddress="192.168.2.217" DateTime="2025-07-24T21:24:19" MilliSeconds="811">
+	<Siblings/>
+	<CanOpen Status="not started"/>
+	<Measurements>
+		<Measurement Value="225.2" Unit="V" Type="AC_Voltage"/>
+		<Measurement Unit="A" Type="AC_Current"/>
+		<Measurement Unit="W" Type="AC_Power"/>
+		<Measurement Unit="W" Type="AC_Power_fast"/>
+		<Measurement Value="50.010" Unit="Hz" Type="AC_Frequency"/>
+		<Measurement Value="61.3" Unit="V" Type="DC_Voltage1"/>
+		<Measurement Value="63.4" Unit="V" Type="DC_Voltage2"/>
+		<Measurement Unit="A" Type="DC_Current1"/>
+		<Measurement Unit="A" Type="DC_Current2"/>
+		<Measurement Value="58.7" Unit="V" Type="LINK_Voltage"/>
+		<Measurement Unit="W" Type="GridPower"/>
+		<Measurement Unit="W" Type="GridConsumedPower"/>
+		<Measurement Unit="W" Type="GridInjectedPower"/>
+		<Measurement Unit="W" Type="OwnConsumedPower"/>
+		<Measurement Value="100.0" Unit="%" Type="Derating"/>
+	</Measurements>
+	<Events>
+	</Events>
+	<Yields>
+		<Yield Type="Produced" Slot="Total" Unit="Wh">
+			<YieldValue Value="10889477" TimeStamp="2023-07-15T21:40:00"/>
+		</Yield>
+	</Yields>
+....
 </root>
 ```
+Make sure you have the latest firmware update installed (e. g. DC_Current changed to DC_Current1 and DC_Current2)
+
 Edit kostal.ini and set version 2.
 ```
 [KOSTAL]

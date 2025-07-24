@@ -291,8 +291,6 @@ def kostal_v2_to_v1_json(xml):
 	xml = bytes(bytearray(xml, encoding = 'utf-8'))
 	el = lxml.etree.XML(xml);
 	print("%%%%")
-	meas = el.findall('.//Measurement[@Type="AC_Power"]')
-	
 	data = {}
 
 	data['EFAT'] = float(el.xpath('//Yield[@Type="Produced"][@Slot="Total"]/YieldValue/@Value')[0]) / 1000
